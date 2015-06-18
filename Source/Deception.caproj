@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Deception</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author>Paul Robson</author>
+    <author-email>paul@robsons.org.uk</author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>13zkl5zwhlcg9</unique-id>
+    <saved-with-version>20600</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="setcolor">Set color</effect>
+        <effect author="Scirra" id="tint">Tint</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>640</width>
+        <height>960</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="Text Objects">
+            <object-type name="HighScoreText" sid="6507256107981705">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="ScoreText" sid="8800895642072089">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="StaticText" sid="2262595998446134">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="TextLine1" sid="421645610473039">
+                <plugin id="Spritefont2" />
+                <instance-variables>
+                    <instance-variable comment="Text that will be displayed when finished" name="requiredText" sid="4869618632675367" type="string" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Timer" sid="535119787204835">
+                        <behavior id="Timer" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="TextLine2" sid="2032986432528472">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="TextLine3" sid="4821590288275873">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Utility Objects">
+            <object-type name="ButtonBackground" sid="6500881594963579">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="Number of gun (1-gunCount) this operates" name="gunIdentifier" sid="6683731256760854" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Timer" sid="9249587480995366">
+                        <behavior id="Timer" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4627551086514299" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Deception\Graphics\button.png">
+                            <collision-poly>
+                                <point x="0.0675" y="0.0675" />
+                                <point x="0.5" y="0" />
+                                <point x="0.9325" y="0.0675" />
+                                <point x="1" y="0.5" />
+                                <point x="0.9325" y="0.9325" />
+                                <point x="0.5" y="1" />
+                                <point x="0.0675" y="0.9325" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="MoonLifeMarker" sid="7243052823332077">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="277702614815691" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Deception\Graphics\moon.png">
+                            <collision-poly>
+                                <point x="0.1575" y="0.1575" />
+                                <point x="0.5" y="0.02" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="0.99625" y="0.5" />
+                                <point x="0.85125" y="0.85125" />
+                                <point x="0.5" y="1" />
+                                <point x="0.14875" y="0.85125" />
+                                <point x="0.01" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="MissileBlank" sid="8851914666355595">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="Star" sid="8967432597189304">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="3874180979915963">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9416107613306895" speed="5">
+                        <frame duration="1" hotspotX="0.516129" hotspotY="0.516129" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Exhaust" sid="9628371262717736">
+                <plugin id="Particles" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="8388723918693042">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <container>
+                    <type>Rocket</type>
+                    <type>Exhaust</type>
+                </container>
+                <texture />
+            </object-type>
+            <object-type name="ExplodingMoon" sid="899898901567128">
+                <plugin id="Particles" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="8922892044860732">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+            <object-type name="ExplodingRocket" sid="9121964151325877">
+                <plugin id="Particles" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="6822208667887501">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+            <object-type name="TransitionObject" sid="9981643770138451">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="5282499810367232">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+        </object-folder>
+        <object-type name="Function" sid="9881838262119424">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Audio" sid="9038953474906639">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Button" sid="1819240206580455">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Number of gun (1-gunCount) this operates" name="gunIdentifier" sid="4742672161263243" type="number" />
+                <instance-variable comment="True if can operate button" name="isButtonOperating" sid="6045941297894724" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="7047688509532561">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1553365357016093" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Deception\Graphics\button.png">
+                        <collision-poly>
+                            <point x="0.0675" y="0.0675" />
+                            <point x="0.5" y="0" />
+                            <point x="0.9325" y="0.0675" />
+                            <point x="1" y="0.5" />
+                            <point x="0.9325" y="0.9325" />
+                            <point x="0.5" y="1" />
+                            <point x="0.0675" y="0.9325" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="9394775905616049">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Moon" sid="5464618482858416">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="destroyCount" sid="412667885997646" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="4702388448242309">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8562007412531028" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Deception\Graphics\moon.png">
+                        <collision-poly>
+                            <point x="0.1575" y="0.1575" />
+                            <point x="0.5" y="0.02" />
+                            <point x="0.84375" y="0.15625" />
+                            <point x="0.99625" y="0.5" />
+                            <point x="0.85125" y="0.85125" />
+                            <point x="0.5" y="1" />
+                            <point x="0.14875" y="0.85125" />
+                            <point x="0.01" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Launcher" sid="7386650630847228">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="ID Number of gun" name="gunIdentifier" sid="1184127272181688" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5441174656354906" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.503185" original-source="C:\Deception\Graphics\pipe.png">
+                        <collision-poly>
+                            <point x="0.08875" y="0.113057" />
+                            <point x="0.5" y="0.113057" />
+                            <point x="0.9975" y="0.00318471" />
+                            <point x="0.9975" y="0.996815" />
+                            <point x="0.5" y="0.886943" />
+                            <point x="0.08875" y="0.886943" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Missile" sid="7745092882593015">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="9402756165639236">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="9084648216689721">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9220548160125979" speed="5">
+                    <frame duration="1" hotspotX="0.985" hotspotY="0.516667" original-source="C:\Deception\Graphics\missile.png">
+                        <collision-poly>
+                            <point x="0.00625" y="0.0206612" />
+                            <point x="0.5" y="0.0702479" />
+                            <point x="0.92125" y="0.260331" />
+                            <point x="1" y="0.5" />
+                            <point x="0.92125" y="0.739669" />
+                            <point x="0.5" y="0.929752" />
+                            <point x="0.01" y="0.966942" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Rocket" sid="8455129343655403">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Rocket direction if it were outgoing" name="direction" sid="415763417854527" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="2468943517321033">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>Rocket</type>
+                <type>Exhaust</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5054596541093463" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Deception\Graphics\attacker.png">
+                        <image-point name="Exhaust" x="0.164179" y="0.5" />
+                        <collision-poly>
+                            <point x="0.0336788" y="0.0450607" />
+                            <point x="0.819948" y="0.240901" />
+                            <point x="0.988342" y="0.499133" />
+                            <point x="0.836788" y="0.781629" />
+                            <point x="0.5" y="0.87175" />
+                            <point x="0.0362694" y="0.951473" />
+                            <point x="0" y="0.499133" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="Colourable" plugin-id="Sprite" sid="9441100193234405">
+            <members>
+                <member>Button</member>
+                <member>ButtonBackground</member>
+                <member>Launcher</member>
+                <member>Missile</member>
+                <member>Rocket</member>
+                <member>Star</member>
+            </members>
+            <effects>
+                <effect-type name="Tint">
+                    <effect id="tint" />
+                </effect-type>
+            </effects>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Game.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Game Events.xml</event-sheet>
+        <event-sheet>Initialisation and Scoring.xml</event-sheet>
+        <event-sheet>Globals.xml</event-sheet>
+        <event-sheet>Text Info Management.xml</event-sheet>
+        <event-sheet>Buttons and Launching.xml</event-sheet>
+        <event-sheet>Planet and Guns.xml</event-sheet>
+        <event-sheet>Twinkling Stars.xml</event-sheet>
+        <event-sheet>Rockets and Collisions.xml</event-sheet>
+        <event-sheet>Transitions.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Function" uid="8" />
+        <global-instance type="Audio" uid="10">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Touch" uid="12">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <file name="attack.m4a" />
+        <file name="attack.ogg" />
+        <file name="explosion.m4a" />
+        <file name="explosion.ogg" />
+        <file name="launch.m4a" />
+        <file name="launch.ogg" />
+        <file name="switching.m4a" />
+        <file name="switching.ogg" />
+        <file name="teleprint.m4a" />
+        <file name="teleprint.ogg" />
+    </sounds-folder>
+    <music-folder>
+        <file name="music.m4a" />
+        <file name="music.ogg" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

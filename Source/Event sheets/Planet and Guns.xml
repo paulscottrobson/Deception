@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Planet and Guns</name>
+    <events>
+        <comment>On the start, size the moon, tidy up, start the music</comment>
+        <event-block sid="4260019804182742">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4748449302929026" type="System" />
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="394461543948211" type="Moon">
+                    <param id="0" name="Width">planetRadius*2</param>
+                    <param id="1" name="Height">planetRadius*2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="4702748315481744" type="Launcher" />
+                <action id="0" name="Play" sid="5066385994560681" type="Audio">
+                    <param id="0" name="Audio file">music</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;backgroundMusic&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="3108580864948898" type="System">
+                    <param id="0" name="Variable">angleOffset</param>
+                    <param id="1" name="Value">random(0,360)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>Create guns at correct distance and angle and colour</comment>
+                <event-block sid="6013826301162045">
+                    <conditions>
+                        <condition id="-10" name="For" sid="9928149891889578" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">gunCount</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="4052521447000586" type="System">
+                            <param id="0" name="Object to create">Launcher</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">loopindex*50</param>
+                            <param id="3" name="Y">100</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="8806939126136653" type="Launcher">
+                            <param id="0" name="Width">planetRadius/1.7</param>
+                        </action>
+                        <action id="-6" name="Set height" sid="5872162443072092" type="Launcher">
+                            <param id="0" name="Height">Launcher.Width*2/3</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="2406850292070726" type="Launcher">
+                            <param id="0" name="Angle">Function.Call(&quot;getAngle&quot;,loopindex)</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="5453959495903823" type="Launcher">
+                            <param id="0" name="X">Moon.X+planetRadius*cos(Launcher.Angle)</param>
+                            <param id="1" name="Y">Moon.Y+planetRadius*sin(Launcher.Angle)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3163218223070285" type="Launcher">
+                            <param id="0" name="Instance variable">gunIdentifier</param>
+                            <param id="1" name="Value">loopindex</param>
+                        </action>
+                        <action id="0" name="Call function" sid="6622014279986169" type="Function">
+                            <param id="0" name="Name">&quot;colourObject&quot;</param>
+                            <param id="1" name="Parameter {n}">Launcher.UID{###}loopindex</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Function to get angle of guns</comment>
+        <event-block sid="3798705546712887">
+            <conditions>
+                <condition id="0" name="On function" sid="2933252434352428" type="Function">
+                    <param id="0" name="Name">&quot;getAngle&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="4988335649488505" type="Function">
+                    <param id="0" name="Value">Function.Param(0) * 360 / gunCount+angleOffset</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

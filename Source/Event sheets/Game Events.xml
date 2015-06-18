@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Game Events</name>
+    <events>
+        <include>Globals</include>
+        <include>Initialisation and Scoring</include>
+        <include>Text Info Management</include>
+        <include>Buttons and Launching</include>
+        <include>Planet and Guns</include>
+        <include>Twinkling Stars</include>
+        <include>Rockets and Collisions</include>
+        <include>Transitions</include>
+    </events>
+</c2eventsheet>

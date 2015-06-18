@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Initialisation and Scoring</name>
+    <events>
+        <comment>On start up</comment>
+        <event-block sid="7691174764963824">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4073047795120528" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2820871541767596" type="System">
+                    <param id="0" name="Variable">isFirstTry</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="2308802381661449" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <comment>If it is a new game, reinitialise everything, refresh score + lives</comment>
+                <event-block sid="2303801584721042">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="1478550680295057" type="System">
+                            <param id="0" name="First value">score</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5704371288370095" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1772710448278154" type="System">
+                            <param id="0" name="Variable">livesRemaining</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4029105762919452" type="System">
+                            <param id="0" name="Variable">gunCount</param>
+                            <param id="1" name="Value">skillLevel + 2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3933464075030463" type="System">
+                            <param id="0" name="Variable">isFirstTry</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3361269143078706" type="System">
+                            <param id="0" name="Variable">missileRechargeTime</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Always update the GUI</comment>
+                <event-block sid="5316839961872989">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="997915926496997" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8588680579029534" type="Function">
+                            <param id="0" name="Name">&quot;addToScore&quot;</param>
+                            <param id="1" name="Parameter {n}">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="6296038982452228" type="Function">
+                            <param id="0" name="Name">&quot;updateLives&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Functions adds a constant to a score</comment>
+        <event-block sid="149560427437229">
+            <conditions>
+                <condition id="0" name="On function" sid="8974820659335302" type="Function">
+                    <param id="0" name="Name">&quot;addToScore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5715880650211016" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+                <action id="-9" name="Set value" sid="4126077120330222" type="System">
+                    <param id="0" name="Variable">highScore</param>
+                    <param id="1" name="Value">max(score,highScore)</param>
+                </action>
+                <action id="0" name="Set text" sid="2568993038109092" type="ScoreText">
+                    <param id="0" name="Text">right(&quot;000000&quot; &amp; score,6)</param>
+                </action>
+                <action id="0" name="Set text" sid="8093042213948291" type="HighScoreText">
+                    <param id="0" name="Text">right(&quot;000000&quot; &amp; highScore,6)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Function updates the lives display</comment>
+        <event-block sid="3800394946125683">
+            <conditions>
+                <condition id="0" name="On function" sid="6165788542641201" type="Function">
+                    <param id="0" name="Name">&quot;updateLives&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="778257660864441" type="MoonLifeMarker" />
+            </actions>
+            <sub-events>
+                <event-block sid="2757697215670523">
+                    <conditions>
+                        <condition id="-10" name="For" sid="4714216826628623" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">livesRemaining</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="774978950591042" type="System">
+                            <param id="0" name="Object to create">MoonLifeMarker</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">LayoutWidth-16-(loopindex-1) * 32</param>
+                            <param id="3" name="Y">LayoutHeight-16</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

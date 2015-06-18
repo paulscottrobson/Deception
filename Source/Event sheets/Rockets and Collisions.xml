@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Rockets and Collisions</name>
+    <events>
+        <comment>Tidy up on start</comment>
+        <event-block sid="9613086744864713">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2936486449004447" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8775304527321495" type="Rocket" />
+                <action id="-9" name="Destroy" sid="3323859658885294" type="ExplodingRocket" />
+                <action id="-9" name="Destroy" sid="2043232994290885" type="ExplodingMoon" />
+            </actions>
+        </event-block>
+        <comment>First time game is started, restart the spawning timer and remember when we started</comment>
+        <event-block sid="7885015565980547">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2123615839482821" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="426748041380028" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="5249335354335356" type="Moon">
+                    <param id="0" name="Duration">1</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;rocketLaunch&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="8507186329577229" type="System">
+                    <param id="0" name="Variable">gameStartTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Launch period rockets</comment>
+        <event-block sid="494586577487122">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="6884308053127824" type="Moon">
+                    <param id="0" name="Tag">&quot;rocketLaunch&quot;</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5287057856641368" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="6267185414261631" type="Function">
+                    <param id="0" name="Name">&quot;RestartPlanetTimer&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-3" name="Create object" sid="7256195007552112" type="System">
+                    <param id="0" name="Object to create">Rocket</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">Moon.X</param>
+                    <param id="3" name="Y">Moon.Y</param>
+                </action>
+                <action id="-10" name="Set value" sid="6573886328794269" type="Rocket">
+                    <param id="0" name="Instance variable">direction</param>
+                    <param id="1" name="Value">floor(random(1,gunCount+1))</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="7010318405784668" type="Rocket">
+                    <param id="0" name="Angle">Function.Call(&quot;getAngle&quot;,Rocket.direction)</param>
+                </action>
+                <action id="9" name="Set scale" sid="1498555933254459" type="Rocket">
+                    <param id="0" name="Scale">(planetRadius/1.4)/rocket.Width</param>
+                </action>
+                <action id="-3" name="Set position" sid="2675003434949113" type="Rocket">
+                    <param id="0" name="X">Moon.X + cos(Rocket.Bullet.AngleOfMotion) * 450</param>
+                    <param id="1" name="Y">Moon.Y + sin(Rocket.Bullet.AngleOfMotion) * 450</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="3442079678598139" type="Rocket">
+                    <param id="0" name="Angle">Rocket.Bullet.AngleOfMotion+180</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="9075046548328125" type="Rocket">
+                    <param id="0" name="Speed">random(10,20)</param>
+                </action>
+                <action id="0" name="Call function" sid="4244597079460595" type="Function">
+                    <param id="0" name="Name">&quot;colourObject&quot;</param>
+                    <param id="1" name="Parameter {n}">Rocket.UID{###}Rocket.direction</param>
+                </action>
+                <action id="-8" name="Set angle" sid="4296193742409423" type="Exhaust">
+                    <param id="0" name="Angle">Rocket.Angle-180</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="9045207950993589" type="Exhaust">
+                    <param id="0" name="Object">Rocket</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="4841884249415014" type="Exhaust">
+                    <param id="0" name="Pin to">Rocket</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="0" name="Play" sid="4534315996906377" type="Audio">
+                    <param id="0" name="Audio file">attack</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>We didn&apos;t make it guys.</comment>
+        <event-block any="1" sid="889449809597752">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7767710247443406" type="Rocket">
+                    <param id="0" name="Object">Moon</param>
+                </condition>
+                <condition id="4" name="Is touching object" sid="1552359781886965" type="Touch">
+                    <param id="0" name="Object">Moon</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="1367976386111961" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="9488348905427871" type="Moon">
+                    <param id="0" name="Duration">0.4</param>
+                    <param id="1" name="Type">1</param>
+                    <param id="2" name="Tag">&quot;blowUp&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="7484403895850699" type="Moon">
+                    <param id="0" name="Instance variable">destroyCount</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="2729826378805302" type="Rocket" />
+            </actions>
+        </event-block>
+        <comment>On a blow up timer (e.g. we didn&apos;t make it)</comment>
+        <event-block sid="8363475850983608">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="5662096022709559" type="Moon">
+                    <param id="0" name="Tag">&quot;blowUp&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Not destroyed all the guns</comment>
+                <event-block sid="719173025441823">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="779755686005984" type="Moon">
+                            <param id="0" name="Instance variable">destroyCount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">gunCount</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Pick a launcher and destroy it</comment>
+                        <event-block sid="6052226644817317">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="354218224342201" type="System">
+                                    <param id="0" name="Object">Launcher</param>
+                                    <param id="1" name="Expression">Launcher.gunIdentifier = Moon.destroyCount</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="9476949707893891" type="Launcher" />
+                                <action id="-11" name="Add to" sid="4605562466316281" type="Moon">
+                                    <param id="0" name="Instance variable">destroyCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="5962554940100083" type="Launcher">
+                                    <param id="0" name="Object">ExplodingRocket</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Play" sid="1180955719087079" type="Audio">
+                                    <param id="0" name="Audio file">explosion</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Completed, blow up the moon</comment>
+                <event-block sid="1084752069066527">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="1630746481461092" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="8411677449961762" type="Moon">
+                            <param id="0" name="Object">ExplodingMoon</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4570489314812631" type="Moon" />
+                        <action id="-11" name="Subtract from" sid="8291347023175451" type="System">
+                            <param id="0" name="Variable">livesRemaining</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="1932813162038607" type="Audio">
+                            <param id="0" name="Audio file">explosion</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="840187409382789" type="Function">
+                            <param id="0" name="Name">&quot;updateLives&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>If lives left then wait and restart</comment>
+                        <event-block sid="1433277115506173">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9901001457388681" type="System">
+                                    <param id="0" name="Variable">livesRemaining</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="9209966789162823" type="System">
+                                    <param id="0" name="Seconds">6</param>
+                                </action>
+                                <action id="0" name="Call function" sid="7186587275532984" type="Function">
+                                    <param id="0" name="Name">&quot;transitionOut&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Game&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8564508764385211">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="1839071177379054" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="1697920790314014" type="System">
+                                    <param id="0" name="Seconds">6</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Shot down rocket, spawn explosion and add score</comment>
+        <event-block sid="2128016267712367">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="5941980918268165" type="Rocket">
+                    <param id="0" name="Object">Missile</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2830936087876074" type="Rocket">
+                    <param id="0" name="Object">ExplodingRocket</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="234767358884466" type="Rocket" />
+                <action id="-9" name="Destroy" sid="7926288759869216" type="Missile" />
+                <action id="0" name="Call function" sid="3605585739016274" type="Function">
+                    <param id="0" name="Name">&quot;addToScore&quot;</param>
+                    <param id="1" name="Parameter {n}">floor((distance(Rocket.X,Rocket.Y,Moon.X,Moon.Y)-planetRadius)/20)*10</param>
+                </action>
+                <action id="0" name="Play" sid="2701049005780109" type="Audio">
+                    <param id="0" name="Audio file">explosion</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Restart the planet&apos;s spawning timer</comment>
+        <event-block sid="7742912847322327">
+            <conditions>
+                <condition id="0" name="On function" sid="7174414307042637" type="Function">
+                    <param id="0" name="Name">&quot;RestartPlanetTimer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="2363875250967177" type="Moon">
+                    <param id="0" name="Duration">max(missileRechargeTime*3/2,10-(time-gameStartTime)*7/120)</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;rocketLaunch&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

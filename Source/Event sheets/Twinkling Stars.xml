@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Twinkling Stars</name>
+    <events>
+        <comment>Create twinkling stars</comment>
+        <event-block sid="6837015033743712">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="1596866538317057" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="7545834638073285" type="Star" />
+            </actions>
+            <sub-events>
+                <comment>Create stars, set size, position and colour and make invisible first time</comment>
+                <event-block sid="8074581924346585">
+                    <conditions>
+                        <condition id="-10" name="For" sid="1237882259966324" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="1900973397317363" type="System">
+                            <param id="0" name="Object to create">Star</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(0,100)</param>
+                            <param id="3" name="Y">random(0,100)</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="2557913133527871" type="Star">
+                            <param id="0" name="Width">8+loopindex%8</param>
+                            <param id="1" name="Height">8+loopindex%8</param>
+                        </action>
+                        <action behavior="Fade" id="3" name="Set wait time" sid="6155581363066925" type="Star">
+                            <param id="0" name="Wait time">random(0,1)</param>
+                        </action>
+                        <action id="0" name="Call function" sid="4907841442834597" type="Function">
+                            <param id="0" name="Name">&quot;positionStar&quot;</param>
+                            <param id="1" name="Parameter {n}">Star.UID</param>
+                        </action>
+                        <action id="0" name="Call function" sid="2214179581015189" type="Function">
+                            <param id="0" name="Name">&quot;colourObject&quot;</param>
+                            <param id="1" name="Parameter {n}">Star.UID{###}floor(random(1,9))</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="667173709809442" type="Star">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>When finished fading out, restart</comment>
+        <event-block sid="9778465123566031">
+            <conditions>
+                <condition behavior="Fade" id="0" name="On fade-out finished" sid="6723634221254769" type="Star" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="1404764545732205" type="Function">
+                    <param id="0" name="Name">&quot;positionStar&quot;</param>
+                    <param id="1" name="Parameter {n}">Star.UID{###}floor(random(1,9))</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Reposition and restart a star</comment>
+        <event-block sid="5092669902355601">
+            <conditions>
+                <condition id="0" name="On function" sid="4632498611057384" type="Function">
+                    <param id="0" name="Name">&quot;positionStar&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Set fade in/out/time and make visible</comment>
+                <event-block sid="6046074970531023">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="7279160985082954" type="Star">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="5623891358006858" type="Star">
+                            <param id="0" name="X">random(0,640)</param>
+                            <param id="1" name="Y">random(0,640)+64</param>
+                        </action>
+                        <action behavior="Fade" id="4" name="Set fade-out time" sid="7310558750442526" type="Star">
+                            <param id="0" name="Fade-out time">random(0.3,1.6)</param>
+                        </action>
+                        <action behavior="Fade" id="0" name="Restart fade" sid="1683290767191684" type="Star" />
+                        <action id="-15" name="Set visible" sid="7055984069603531" type="Star">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="2" name="Set fade-in time" sid="1893601008649884" type="Star">
+                            <param id="0" name="Fade-in time">random(0.2,0.7)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

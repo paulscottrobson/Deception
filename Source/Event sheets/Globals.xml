@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Globals</name>
+    <events>
+        <comment>Current Score. When set to -1 this is an instruction to reinitialise for a new game</comment>
+        <variable comment="Current Score" constant="0" name="score" sid="7626826449175196" static="0" type="number">-1</variable>
+        <comment>High Score</comment>
+        <variable comment="Current High Score" constant="0" name="highScore" sid="120737575311716" static="0" type="number">1000</variable>
+        <comment>Number of lives remaining including the current one.</comment>
+        <variable comment="Number of lives remaining" constant="0" name="livesRemaining" sid="3018041507192626" static="0" type="number">3</variable>
+        <comment>Skill level 1-6</comment>
+        <variable comment="Current level number (1-6)" constant="0" name="skillLevel" sid="7809568022315852" static="0" type="number">3</variable>
+        <comment>Number of guns on the planet, attacking directions, firing directions etc.</comment>
+        <variable comment="Number of guns on the game screen" constant="0" name="gunCount" sid="5069125566202792" static="0" type="number">3</variable>
+        <comment>Set to non zero if this is the first attempt</comment>
+        <variable comment="Set to non zero if this is the first attempt" constant="0" name="isFirstTry" sid="9227881333343824" static="0" type="number">0</variable>
+        <comment>Non zero if game is running - you can shoot, things can attack etc.</comment>
+        <variable comment="Non zero if game is currently running" constant="0" name="isGameRunning" sid="8595991817741761" static="0" type="number">1</variable>
+        <comment>Radius of planet in pixels</comment>
+        <variable comment="Radius of Planet" constant="0" name="planetRadius" sid="7121158828627392" static="0" type="number">75</variable>
+        <comment>Offset rotation for everything</comment>
+        <variable comment="Offset rotation for guns etc." constant="0" name="angleOffset" sid="2868396704346634" static="0" type="number">0</variable>
+        <comment>Time game started</comment>
+        <variable comment="Time game started (speeding rockets up)" constant="0" name="gameStartTime" sid="4916292488935184" static="0" type="number">0</variable>
+        <comment>Time missiles take to recharge (limiting firing)</comment>
+        <variable comment="Time for a missile to recharge (e.g. between button fires)" constant="0" name="missileRechargeTime" sid="3118465902454879" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>

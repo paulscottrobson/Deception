@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Transitions</name>
+    <events>
+        <comment>When transitioning out, the next layout is kept here</comment>
+        <variable comment="Next layout if transitioning" constant="0" name="transitionNextLayout" sid="1990863467766248" static="0" type="text"></variable>
+        <comment>At the start create a transition object screen size and fade it out , destroy on fading.</comment>
+        <event-block sid="702370413127774">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5252542393380884" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="9306764568058226" type="System">
+                    <param id="0" name="Object to create">TransitionObject</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="7768029522864695" type="TransitionObject">
+                    <param id="0" name="Width">LayoutWidth</param>
+                    <param id="1" name="Height">LayoutHeight</param>
+                </action>
+                <action behavior="Fade" id="4" name="Set fade-out time" sid="3581271821332597" type="TransitionObject">
+                    <param id="0" name="Fade-out time">1</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="4878317475170433" type="TransitionObject" />
+                <action id="-9" name="Set value" sid="2467340951992011" type="System">
+                    <param id="0" name="Variable">transitionNextLayout</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Call this to transition to another layout</comment>
+        <event-block sid="6247885137877266">
+            <conditions>
+                <condition id="0" name="On function" sid="4337351218746043" type="Function">
+                    <param id="0" name="Name">&quot;transitionOut&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="3938136997493388" type="System">
+                    <param id="0" name="Object to create">TransitionObject</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="2450631764140238" type="TransitionObject">
+                    <param id="0" name="Width">LayoutWidth</param>
+                    <param id="1" name="Height">LayoutHeight</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="7471869860637667" type="TransitionObject">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action behavior="Fade" id="2" name="Set fade-in time" sid="8470535613553536" type="TransitionObject">
+                    <param id="0" name="Fade-in time">1</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="7757017214710426" type="TransitionObject" />
+                <action id="-9" name="Set value" sid="3223912355320122" type="System">
+                    <param id="0" name="Variable">transitionNextLayout</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>When that transition finishes, go to next layout</comment>
+        <event-block sid="2886845849497264">
+            <conditions>
+                <condition behavior="Fade" id="1" name="On fade-in finished" sid="6497037334454873" type="TransitionObject" />
+                <condition id="-14" name="Compare variable" sid="6190826106244207" type="System">
+                    <param id="0" name="Variable">transitionNextLayout</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">&quot;&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="1274748801985503" type="System">
+                    <param id="0" name="Layout">transitionNextLayout</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
