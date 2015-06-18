@@ -10,6 +10,7 @@
     <unique-id>13zkl5zwhlcg9</unique-id>
     <saved-with-version>20600</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
@@ -366,6 +367,14 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type global="1" name="IntroChat" sid="5511323954487186">
+            <plugin id="Arr" />
+            <instance-variables>
+                <instance-variable name="n" sid="4875817991043291" type="number" />
+                <instance-variable name="nextShow" sid="3128044312156406" type="number" />
+                <instance-variable name="secondCount" sid="6957218422678022" type="number" />
+            </instance-variables>
+        </object-type>
     </object-folder>
     <families>
         <family name="Colourable" plugin-id="Sprite" sid="9441100193234405">
@@ -397,6 +406,7 @@
         <event-sheet>Twinkling Stars.xml</event-sheet>
         <event-sheet>Rockets and Collisions.xml</event-sheet>
         <event-sheet>Transitions.xml</event-sheet>
+        <event-sheet>Introduction.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="8" />

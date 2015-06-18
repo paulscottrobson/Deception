@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Globals</name>
     <events>
+        <variable comment="Non zero if the introduction is completed or has been short cutted" constant="0" name="isIntroComplete" sid="6821327941466541" static="0" type="number">0</variable>
         <comment>Current Score. When set to -1 this is an instruction to reinitialise for a new game</comment>
         <variable comment="Current Score" constant="0" name="score" sid="7626826449175196" static="0" type="number">-1</variable>
         <comment>High Score</comment>

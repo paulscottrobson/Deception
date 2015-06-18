@@ -595,7 +595,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
-                        <y>896</y>
+                        <y>832</y>
                         <z>0</z>
                         <width>576</width>
                         <height>32</height>
@@ -679,7 +679,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
-                        <y>832</y>
+                        <y>896</y>
                         <z>0</z>
                         <width>576</width>
                         <height>32</height>
@@ -838,6 +838,19 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="IntroChat" uid="24">
+            <properties>
+                <width>16</width>
+                <height>2</height>
+                <depth>1</depth>
+            </properties>
+            <instance-variables>
+                <n>0</n>
+                <nextShow>0</nextShow>
+                <secondCount>0</secondCount>
+            </instance-variables>
+        </instance>
+    </nonworld-instances>
     <effects />
 </c2layout>

@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Introduction</name>
+    <events>
+        <event-block sid="4647159491950794">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="1814948028120113" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Clear" sid="5444195332521692" type="IntroChat" />
+                <action id="-10" name="Set value" sid="8636471043068232" type="IntroChat">
+                    <param id="0" name="Instance variable">n</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="2684727625860981" type="IntroChat">
+                    <param id="0" name="Instance variable">nextShow</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="n" sid="6668469638229745" static="0" type="number">0</variable>
+                <event-block sid="5698920170939265">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="3040919092207901" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="4361306220684823" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">3</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="5245798791632821" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Welcome new recruit&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="6086339230620241" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="7318990294372416" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">3</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="7309606338263553" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Piece of cake, this&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="2300552305898212" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="4049603059695325" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="9694052967009399" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Hit the coloured buttons&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="6124807271768275" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="7436533425455949" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">6</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="5266636587432535" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;They are so sloooow ... &quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="3581201693972277" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="4251309321297389" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="4503869153653457" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Memo: From Management&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="2254812133196612" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="3391366743222728" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="2979830286478948" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;We upgraded your Linux&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="7850454306576688" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="7914913691216567" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">5</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="9265625881069827" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;system to Windows ME&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="6330276895644602" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="2183186316293482" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="2115698675121837" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Warning. Bug 0017a&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="3323732831079082" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="132293135646951" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="9928336824051492" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;randomly rewires stuff&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="6360261552714297" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="4562282506189316" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="4930803235655232" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;inside your PC !&quot;</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="2086207176583916" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="624096540368557" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;Autoupdate is turned on&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="7333107250985178" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="6562656766639662" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">2</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="3691049858090218" type="IntroChat">
+                            <param id="0" name="X">IntroChat.n</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">&quot;And it&apos;s Tuesday ....&quot;</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="5411693356785636" type="IntroChat">
+                            <param id="0" name="Instance variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1749424963285613">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2157895241443329" type="System">
+                    <param id="0" name="Interval (seconds)">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8343058147334459" type="System">
+                    <param id="0" name="Variable">isIntroComplete</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="3135542390804686" type="IntroChat">
+                    <param id="0" name="Instance variable">secondCount</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7411612487166155">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8363598721670174" type="IntroChat">
+                            <param id="0" name="Instance variable">secondCount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2632621246110851">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="8983370929964887" type="IntroChat">
+                                    <param id="0" name="Instance variable">n</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">IntroChat.nextShow</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1407061262963598" type="System">
+                                    <param id="0" name="Variable">isIntroComplete</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="738822366323667">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6385171637526958" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5975282781345153" type="Function">
+                                    <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                                    <param id="1" name="Parameter {n}">IntroChat.At(IntroChat.nextShow,1)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9156039721474575" type="IntroChat">
+                                    <param id="0" name="Instance variable">secondCount</param>
+                                    <param id="1" name="Value">IntroChat.At(IntroChat.nextShow,0)</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="781635581443383" type="IntroChat">
+                                    <param id="0" name="Instance variable">nextShow</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4952654037187177">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9020718094404539" type="System">
+                    <param id="0" name="Variable">isIntroComplete</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="5572188206530756" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="7221991597493998" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7853543238256192">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="7976828230744336" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="7335812273580533" type="System">
+                    <param id="0" name="Variable">isIntroComplete</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9690602403998441" type="System">
+                    <param id="0" name="Variable">isIntroComplete</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -23,7 +23,7 @@
                     <param id="1" name="Value">&quot;&quot;</param>
                 </action>
                 <action behavior="Timer" id="0" name="Start timer" sid="150819967745645" type="TextLine1">
-                    <param id="0" name="Duration">0.15</param>
+                    <param id="0" name="Duration">0.08</param>
                     <param id="1" name="Type">1</param>
                     <param id="2" name="Tag">&quot;nextCharacter&quot;</param>
                 </action>
@@ -89,7 +89,7 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="2006390121599736">
+        <event-block disabled="1" sid="2006390121599736">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="6485397432800675" type="System" />
             </conditions>
@@ -101,7 +101,7 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="7605459879013821">
+        <event-block disabled="1" sid="7605459879013821">
             <conditions>
                 <condition behavior="Timer" id="0" name="On timer" sid="8300843687557396" type="TextLine1">
                     <param id="0" name="Tag">&quot;demo&quot;</param>
