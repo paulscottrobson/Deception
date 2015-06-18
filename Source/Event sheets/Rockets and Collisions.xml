@@ -126,8 +126,19 @@
                     <param id="0" name="Instance variable">destroyCount</param>
                     <param id="1" name="Value">1</param>
                 </action>
-                <action id="-9" name="Destroy" sid="2729826378805302" type="Rocket" />
             </actions>
+            <sub-events>
+                <event-block sid="1325230100007104">
+                    <conditions>
+                        <condition id="-19" name="Pick all" sid="9090379544909157" type="System">
+                            <param id="0" name="Object">Rocket</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2729826378805302" type="Rocket" />
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <comment>On a blow up timer (e.g. we didn&apos;t make it)</comment>
         <event-block sid="8363475850983608">
@@ -212,7 +223,7 @@
                                 <condition id="-14" name="Compare variable" sid="9901001457388681" type="System">
                                     <param id="0" name="Variable">livesRemaining</param>
                                     <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">0</param>
+                                    <param id="2" name="Value">11</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -230,8 +241,13 @@
                                 <condition id="-22" name="Else" sid="1839071177379054" type="System" />
                             </conditions>
                             <actions>
+                                <action behavior="Fade" id="1" name="Start fade" sid="7133413093619927" type="GameOverText" />
                                 <action id="-16" name="Wait" sid="1697920790314014" type="System">
                                     <param id="0" name="Seconds">6</param>
+                                </action>
+                                <action id="0" name="Call function" sid="524508314296243" type="Function">
+                                    <param id="0" name="Name">&quot;transitionOut&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Title Screen&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Introduction</name>
     <events>
+        <comment>Starting the intro, set up</comment>
         <event-block sid="4647159491950794">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="1814948028120113" type="System" />
@@ -19,7 +20,7 @@
                 </action>
             </actions>
             <sub-events>
-                <variable constant="0" name="n" sid="6668469638229745" static="0" type="number">0</variable>
+                <comment>Set up the array with the data in </comment>
                 <event-block sid="5698920170939265">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="3040919092207901" type="System" />
@@ -193,6 +194,7 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>Every second, if intro running, see if we&apos;ve timed ou</comment>
         <event-block sid="1749424963285613">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="2157895241443329" type="System">
@@ -211,6 +213,7 @@
                 </action>
             </actions>
             <sub-events>
+                <comment>If so, go to the next one</comment>
                 <event-block sid="7411612487166155">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="8363598721670174" type="IntroChat">
@@ -221,6 +224,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <comment>If it&apos;s past the end mark as complete</comment>
                         <event-block sid="2632621246110851">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="8983370929964887" type="IntroChat">
@@ -236,6 +240,7 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <comment>Write it to the monitor and set the second counter</comment>
                         <event-block sid="738822366323667">
                             <conditions>
                                 <condition id="-22" name="Else" sid="6385171637526958" type="System" />
@@ -259,6 +264,7 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>If intro complete, run game</comment>
         <event-block sid="4952654037187177">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="9020718094404539" type="System">
@@ -275,6 +281,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>Allows us to miss out the preamble by touching the screen anywhere ....</comment>
         <event-block sid="7853543238256192">
             <conditions>
                 <condition id="0" name="On any touch start" sid="7976828230744336" type="Touch" />
@@ -288,6 +295,10 @@
                 <action id="-9" name="Set value" sid="9690602403998441" type="System">
                     <param id="0" name="Variable">isIntroComplete</param>
                     <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Call function" sid="2209837266332104" type="Function">
+                    <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Good luck !&quot;</param>
                 </action>
             </actions>
         </event-block>

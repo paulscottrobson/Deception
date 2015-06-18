@@ -119,6 +119,20 @@
                 </effects>
                 <texture original-source="C:\Deception\Graphics\larabie.png" />
             </object-type>
+            <object-type name="GameOverText" sid="9959093644383138">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="9738988936141675">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
         </object-folder>
         <object-folder name="Utility Objects">
             <object-type name="ButtonBackground" sid="6500881594963579">
@@ -223,6 +237,14 @@
                     </behavior-type>
                 </behaviors>
                 <texture />
+            </object-type>
+            <object-type global="1" name="IntroChat" sid="5511323954487186">
+                <plugin id="Arr" />
+                <instance-variables>
+                    <instance-variable name="n" sid="4875817991043291" type="number" />
+                    <instance-variable name="nextShow" sid="3128044312156406" type="number" />
+                    <instance-variable name="secondCount" sid="6957218422678022" type="number" />
+                </instance-variables>
             </object-type>
         </object-folder>
         <object-type name="Function" sid="9881838262119424">
@@ -367,14 +389,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type global="1" name="IntroChat" sid="5511323954487186">
-            <plugin id="Arr" />
-            <instance-variables>
-                <instance-variable name="n" sid="4875817991043291" type="number" />
-                <instance-variable name="nextShow" sid="3128044312156406" type="number" />
-                <instance-variable name="secondCount" sid="6957218422678022" type="number" />
-            </instance-variables>
-        </object-type>
     </object-folder>
     <families>
         <family name="Colourable" plugin-id="Sprite" sid="9441100193234405">
@@ -395,6 +409,7 @@
     </families>
     <layout-folder>
         <layout>Game.xml</layout>
+        <layout>TItle Screen.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Game Events.xml</event-sheet>
@@ -407,6 +422,7 @@
         <event-sheet>Rockets and Collisions.xml</event-sheet>
         <event-sheet>Transitions.xml</event-sheet>
         <event-sheet>Introduction.xml</event-sheet>
+        <event-sheet>Title Screen.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="8" />
