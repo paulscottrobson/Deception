@@ -26,5 +26,7 @@
         <variable comment="Time game started (speeding rockets up)" constant="0" name="gameStartTime" sid="4916292488935184" static="0" type="number">0</variable>
         <comment>Time missiles take to recharge (limiting firing)</comment>
         <variable comment="Time for a missile to recharge (e.g. between button fires)" constant="0" name="missileRechargeTime" sid="3118465902454879" static="0" type="number">0</variable>
+        <comment>Local storage key</comment>
+        <variable comment="Key for local storage" constant="1" name="LOCALSTORAGEKEY" sid="6011896915154785" static="0" type="text">paulscottrobson_deception</variable>
     </events>
 </c2eventsheet>

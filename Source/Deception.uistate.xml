@@ -10,19 +10,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="10">TItle Screen</layout>
-        <layout active="1" order="12">Game</layout>
-        <event-sheet order="0">Game Events</event-sheet>
-        <event-sheet order="1">Initialisation and Scoring</event-sheet>
-        <event-sheet order="2">Globals</event-sheet>
-        <event-sheet order="3">Text Info Management</event-sheet>
-        <event-sheet order="4">Buttons and Launching</event-sheet>
-        <event-sheet order="5">Planet and Guns</event-sheet>
-        <event-sheet order="6">Twinkling Stars</event-sheet>
-        <event-sheet order="7">Rockets and Collisions</event-sheet>
-        <event-sheet order="8">Transitions</event-sheet>
-        <event-sheet order="9">Introduction</event-sheet>
-        <event-sheet order="11">Title Screen</event-sheet>
+        <layout order="2">TItle Screen</layout>
+        <event-sheet order="0">Initialisation and Scoring</event-sheet>
+        <event-sheet order="1">Transitions</event-sheet>
+        <event-sheet order="3">Title Screen</event-sheet>
+        <event-sheet order="4">Globals</event-sheet>
+        <event-sheet active="1" order="5">Rockets and Collisions</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -35,7 +28,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="0" path="object-folder/Text Objects/" />
+        <folder expanded="1" path="object-folder/Text Objects/" />
         <folder expanded="0" path="object-folder/Utility Objects/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />

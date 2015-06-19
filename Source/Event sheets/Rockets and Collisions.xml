@@ -249,6 +249,7 @@
                                     <param id="0" name="Name">&quot;transitionOut&quot;</param>
                                     <param id="1" name="Parameter {n}">&quot;Title Screen&quot;</param>
                                 </action>
+                                <action id="33" name="Stop all" sid="5981248652101842" type="Audio" />
                             </actions>
                         </event-block>
                     </sub-events>

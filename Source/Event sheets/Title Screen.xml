@@ -4,5 +4,177 @@
     <name>Title Screen</name>
     <events>
         <include>Transitions</include>
+        <comment>At start update scores and make text invisible</comment>
+        <event-block sid="2535571235732551">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5147332277665111" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5213765581487776" type="ScoreText">
+                    <param id="0" name="Text">right(&quot;000000&quot; &amp; max(score,0),6)</param>
+                </action>
+                <action id="0" name="Set text" sid="298822259804872" type="HighScoreText">
+                    <param id="0" name="Text">right(&quot;000000&quot; &amp; highScore,6)</param>
+                </action>
+                <action id="-15" name="Set visible" sid="1591485586089096" type="StartText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="5" name="Check item exists" sid="1133118655811144" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>If missing create it</comment>
+        <event-block sid="9938796996584847">
+            <conditions>
+                <condition id="10" name="On item missing" sid="7569740934144647" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set item" sid="1220726577385055" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                    <param id="1" name="Value">1000</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>High score exists, then retrieve it</comment>
+        <event-block sid="8049045862461668">
+            <conditions>
+                <condition id="9" name="On item exists" sid="5731071670525857" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Get item" sid="6763003296194458" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>High score exists, update it</comment>
+        <event-block sid="647816926704588">
+            <conditions>
+                <condition id="1" name="On item get" sid="420306886792324" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5909838520561643" type="System">
+                    <param id="0" name="Variable">highScore</param>
+                    <param id="1" name="Value">max(highScore,LocalStorage.ItemValue)</param>
+                </action>
+                <action id="0" name="Set text" sid="9841333603990122" type="HighScoreText">
+                    <param id="0" name="Text">right(&quot;000000&quot; &amp; highScore,6)</param>
+                </action>
+                <action id="0" name="Set item" sid="2054716403821321" type="LocalStorage">
+                    <param id="0" name="Key">LOCALSTORAGEKEY</param>
+                    <param id="1" name="Value">highScore</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Make the text colours flicker</comment>
+        <event-block sid="4366529170095134">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="1778411097146771" type="System">
+                    <param id="0" name="Interval (seconds)">0.03</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-28" name="Set effect parameter" sid="5727681425730659" type="StartText">
+                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">random(0,100)</param>
+                </action>
+                <action id="-28" name="Set effect parameter" sid="790354959649658" type="StartText">
+                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                    <param id="1" name="Parameter index">1</param>
+                    <param id="2" name="Value">random(0,100)</param>
+                </action>
+                <action id="-28" name="Set effect parameter" sid="9442623357311045" type="StartText">
+                    <param id="0" name="Effect">&quot;SetColor&quot;</param>
+                    <param id="1" name="Parameter index">2</param>
+                    <param id="2" name="Value">random(0,100)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Make the skill levels roll out</comment>
+        <event-block sid="1174486534370379">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="5035125449790734" type="System">
+                    <param id="0" name="Interval (seconds)">0.6</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>If not visible, bump count of ticks</comment>
+                <event-block sid="4873181289568757">
+                    <conditions>
+                        <condition id="-9" inverted="1" name="Is visible" sid="6094468751123247" type="StartText" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="3344158690132574" type="StartText">
+                            <param id="0" name="Instance variable">countTicks</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Reached that level, make it visible</comment>
+                        <event-block sid="7478581602072459">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="6100257483393473" type="StartText">
+                                    <param id="0" name="Instance variable">difficulty</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">StartText.countTicks</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="3424575948480038" type="StartText">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Every 10 seconds, start again</comment>
+        <event-block sid="2662506639176845">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="4475646406529596" type="System">
+                    <param id="0" name="Interval (seconds)">10</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="9417556769691324" type="StartText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="1041334339739996" type="StartText">
+                    <param id="0" name="Instance variable">countTicks</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Handle touching of start.</comment>
+        <event-block sid="205689098796006">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="6444747802052437" type="Touch">
+                    <param id="0" name="Object">StartText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="7796548538366657" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="6012020666714399" type="System">
+                    <param id="0" name="Variable">skillLevel</param>
+                    <param id="1" name="Value">StartText.difficulty</param>
+                </action>
+                <action id="0" name="Call function" sid="4939131908272899" type="Function">
+                    <param id="0" name="Name">&quot;transitionOut&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Game&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

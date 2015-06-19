@@ -13,6 +13,7 @@
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
@@ -38,7 +39,8 @@
         <height>960</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
-    <preview-effects>1</preview-effects>
+    <preview-effects>0</preview-effects>
+    <first-layout>TItle Screen</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -126,6 +128,19 @@
                         <behavior id="Fade" />
                     </behavior-type>
                 </behaviors>
+                <effects>
+                    <effect-type name="SetColor">
+                        <effect id="setcolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Deception\Graphics\larabie.png" />
+            </object-type>
+            <object-type name="StartText" sid="7778427163217789">
+                <plugin id="Spritefont2" />
+                <instance-variables>
+                    <instance-variable comment="Difficulty level" name="difficulty" sid="8582039074205542" type="number" />
+                    <instance-variable comment="count towards difficulty" name="countTicks" sid="995514967149487" type="number" />
+                </instance-variables>
                 <effects>
                     <effect-type name="SetColor">
                         <effect id="setcolor" />
@@ -389,6 +404,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="LocalStorage" sid="5290209962582699">
+            <plugin id="LocalStorage" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Colourable" plugin-id="Sprite" sid="9441100193234405">
@@ -445,6 +463,7 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="LocalStorage" uid="41" />
     </global-instances>
     <sounds-folder>
         <file name="attack.m4a" />
