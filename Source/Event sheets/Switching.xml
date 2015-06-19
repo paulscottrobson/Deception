@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Switching</name>
+    <events>
+        <comment>Start timer when game starts</comment>
+        <event-block sid="2211182835508246">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9228845371699291" type="System">
+                    <param id="0" name="Variable">isIntroComplete</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="192664973251913" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="5585389545072609" type="Moon">
+                    <param id="0" name="Duration">15</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;switch&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="2401017022766829" type="ColourNames">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">&quot;Red&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="194303199584327" type="ColourNames">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">&quot;Green&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="6061384976068366" type="ColourNames">
+                    <param id="0" name="X">3</param>
+                    <param id="1" name="Value">&quot;Yellow&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="4396845376881845" type="ColourNames">
+                    <param id="0" name="X">4</param>
+                    <param id="1" name="Value">&quot;Blue&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="2978918928972337" type="ColourNames">
+                    <param id="0" name="X">5</param>
+                    <param id="1" name="Value">&quot;Purple&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="8411863210500932" type="ColourNames">
+                    <param id="0" name="X">6</param>
+                    <param id="1" name="Value">&quot;Cyan&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="7548074899911734" type="ColourNames">
+                    <param id="0" name="X">7</param>
+                    <param id="1" name="Value">&quot;White&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="9511242482970245" type="ColourNames">
+                    <param id="0" name="X">8</param>
+                    <param id="1" name="Value">&quot;Orange&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>If timer times out and game is still running</comment>
+        <event-block sid="983973364368704">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="5731028216855849" type="Moon">
+                    <param id="0" name="Tag">&quot;switch&quot;</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4067963342498452" type="System">
+                    <param id="0" name="Variable">isGameRunning</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="9620023697459567" type="Audio">
+                    <param id="0" name="Audio file">switching</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="5911148559485276" type="Function">
+                    <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Installing MS&quot; &amp; floor(random(10,100)) &amp; &quot;-&quot; &amp; floor(random(1000,9999))</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="9430427540875891" type="Moon">
+                    <param id="0" name="Duration">(40-skillLevel)*random(0.8,1.2)</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;switch&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable comment="number or iid of switch 1" constant="0" name="n1" sid="6869097452465946" static="0" type="number">0</variable>
+                <variable comment="number or iid of switch2" constant="0" name="n2" sid="2703988391826604" static="0" type="number">0</variable>
+                <variable comment="identifier for gun1" constant="0" name="gun1" sid="7614325486781389" static="0" type="number">0</variable>
+                <variable comment="identifier for gun2" constant="0" name="gun2" sid="6912740454870606" static="0" type="number">0</variable>
+                <comment>Pick two differnt guns to swap</comment>
+                <event-block sid="9427048620553818">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9030777257504649" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6982532339964025">
+                            <conditions>
+                                <condition id="-23" name="While" sid="1957218767595875" type="System" />
+                                <condition id="-8" name="Compare two values" sid="3269405605933597" type="System">
+                                    <param id="0" name="First value">n1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">n2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="5347278927899287" type="System">
+                                    <param id="0" name="Variable">n1</param>
+                                    <param id="1" name="Value">floor(random(1,gunCount+1))</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6433842254501481" type="System">
+                                    <param id="0" name="Variable">n2</param>
+                                    <param id="1" name="Value">floor(random(1,gunCount+1))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Tell them what switched, it&apos;s horribly difficult if you don&apos;t.</comment>
+                        <event-block sid="1504502798500088">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="5840864686867261" type="System" />
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="0" name="Call function" sid="2700267160828526" type="Function">
+                                    <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                                    <param id="1" name="Parameter {n}">n1 &amp; &quot; &quot; &amp; n2</param>
+                                </action>
+                                <action id="0" name="Call function" sid="5769603960624377" type="Function">
+                                    <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Switch &quot; &amp;ColourNames.at(n1) &amp; &quot; &quot; &amp; ColourNames.at(n2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Get the gun identifiers and UIDs from n1 and n2</comment>
+                        <event-block sid="836495608125159">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="934801107588588" type="System">
+                                    <param id="0" name="Object">Button</param>
+                                    <param id="1" name="Expression">Button.gunIdentifier = n1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="5275793452987159" type="System">
+                                    <param id="0" name="Variable">gun1</param>
+                                    <param id="1" name="Value">Button.gunIdentifier</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8622234806743496" type="System">
+                                    <param id="0" name="Variable">n1</param>
+                                    <param id="1" name="Value">Button.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5283732635300957">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="6041813470285814" type="System">
+                                    <param id="0" name="Object">Button</param>
+                                    <param id="1" name="Expression">Button.gunIdentifier = n2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="9617777878466102" type="System">
+                                    <param id="0" name="Variable">gun2</param>
+                                    <param id="1" name="Value">Button.gunIdentifier</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6941974477214572" type="System">
+                                    <param id="0" name="Variable">n2</param>
+                                    <param id="1" name="Value">Button.UID</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="1918111274275716">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="3143635090825503" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="0" name="Call function" sid="1582620530788108" type="Function">
+                                            <param id="0" name="Name">&quot;writeToMonitor&quot;</param>
+                                            <param id="1" name="Parameter {n}">gun1 &amp; &quot; &quot; &amp; gun2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Write them back the other way around</comment>
+                        <event-block sid="1799977404334768">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="3610608874254228" type="Button">
+                                    <param id="0" name="Unique ID">n1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="9206370501629319" type="Button">
+                                    <param id="0" name="Instance variable">gunIdentifier</param>
+                                    <param id="1" name="Value">gun2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3576417224920317">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="8432756325503289" type="Button">
+                                    <param id="0" name="Unique ID">n2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="7158418281055805" type="Button">
+                                    <param id="0" name="Instance variable">gunIdentifier</param>
+                                    <param id="1" name="Value">gun1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

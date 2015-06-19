@@ -62,7 +62,7 @@
                         <action id="3" name="Set at XY" sid="9694052967009399" type="IntroChat">
                             <param id="0" name="X">IntroChat.n</param>
                             <param id="1" name="Y">1</param>
-                            <param id="2" name="Value">&quot;Hit the coloured buttons&quot;</param>
+                            <param id="2" name="Value">&quot;Shoot with the buttons&quot;</param>
                         </action>
                         <action id="-11" name="Add to" sid="6124807271768275" type="IntroChat">
                             <param id="0" name="Instance variable">n</param>

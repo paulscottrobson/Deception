@@ -261,6 +261,12 @@
                     <instance-variable name="secondCount" sid="6957218422678022" type="number" />
                 </instance-variables>
             </object-type>
+            <object-type name="LocalStorage" sid="5290209962582699">
+                <plugin id="LocalStorage" />
+            </object-type>
+            <object-type global="1" name="ColourNames" sid="5131899932963333">
+                <plugin id="Arr" />
+            </object-type>
         </object-folder>
         <object-type name="Function" sid="9881838262119424">
             <plugin id="Function" />
@@ -404,9 +410,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="LocalStorage" sid="5290209962582699">
-            <plugin id="LocalStorage" />
-        </object-type>
     </object-folder>
     <families>
         <family name="Colourable" plugin-id="Sprite" sid="9441100193234405">
@@ -441,6 +444,7 @@
         <event-sheet>Transitions.xml</event-sheet>
         <event-sheet>Introduction.xml</event-sheet>
         <event-sheet>Title Screen.xml</event-sheet>
+        <event-sheet>Switching.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="8" />

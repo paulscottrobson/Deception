@@ -11,7 +11,7 @@
         <comment>Number of lives remaining including the current one.</comment>
         <variable comment="Number of lives remaining" constant="0" name="livesRemaining" sid="3018041507192626" static="0" type="number">3</variable>
         <comment>Skill level 1-6</comment>
-        <variable comment="Current level number (1-6)" constant="0" name="skillLevel" sid="7809568022315852" static="0" type="number">3</variable>
+        <variable comment="Current level number (1-6)" constant="0" name="skillLevel" sid="7809568022315852" static="0" type="number">2</variable>
         <comment>Number of guns on the planet, attacking directions, firing directions etc.</comment>
         <variable comment="Number of guns on the game screen" constant="0" name="gunCount" sid="5069125566202792" static="0" type="number">3</variable>
         <comment>Set to non zero if this is the first attempt</comment>

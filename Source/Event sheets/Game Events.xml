@@ -11,6 +11,7 @@
         <include>Twinkling Stars</include>
         <include>Rockets and Collisions</include>
         <include>Introduction</include>
+        <include>Switching</include>
         <include>Transitions</include>
     </events>
 </c2eventsheet>

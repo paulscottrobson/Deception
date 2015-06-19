@@ -112,7 +112,7 @@
                         <character-width>48</character-width>
                         <character-height>64</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
-                        <text>Written by Paul Robson 2015</text>
+                        <text>Written by Paul Robson June 18/19 2015</text>
                         <scale>0.6</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -135,9 +135,9 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
-                        <y>736</y>
+                        <y>731</y>
                         <z>0</z>
-                        <width>608</width>
+                        <width>672</width>
                         <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -174,7 +174,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
-                        <y>832</y>
+                        <y>822</y>
                         <z>0</z>
                         <width>544</width>
                         <height>96</height>
@@ -373,7 +373,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>288</y>
+                        <y>323</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -416,7 +416,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>352</y>
+                        <y>387</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -459,7 +459,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>416</y>
+                        <y>451</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -502,7 +502,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>480</y>
+                        <y>515</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -545,7 +545,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>544</y>
+                        <y>579</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -588,7 +588,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>608</y>
+                        <y>643</y>
                         <z>0</z>
                         <width>576</width>
                         <height>64</height>
@@ -627,9 +627,48 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>320</x>
-                        <y>192</y>
+                        <y>227</y>
                         <z>0</z>
                         <width>608</width>
+                        <height>96</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="StaticText" uid="42">
+                    <properties>
+                        <character-width>48</character-width>
+                        <character-height>64</character-height>
+                        <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
+                        <text>Deception Jam for Newgrounds.com</text>
+                        <scale>0.37</scale>
+                        <initial-visibility>Visible</initial-visibility>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top</hotspot>
+                        <wrapping>Word</wrapping>
+                        <character-spacing>0</character-spacing>
+                        <line-height>0</line-height>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="SetColor">
+                            <parameters>
+                                <blue>1</blue>
+                                <green>0</green>
+                                <red>1</red>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>320</x>
+                        <y>128</y>
+                        <z>0</z>
+                        <width>672</width>
                         <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
